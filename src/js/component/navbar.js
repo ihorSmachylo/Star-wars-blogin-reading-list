@@ -1,35 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/NavBar.css";
+import { FavoritesButton } from "../views/FavoritesButton.jsx"
+
 export const Navbar = () => {
   return (
-    <div>
-      <nav className="navbar navbar-light bg-dark mb-3">
-        <Link to="/">
-          <span className="navbar-brand mb-0 h1 text-light">Star Wars</span>
-          <img height="70"  src="https://www.gamerfocus.co/wp-content/uploads/2018/03/Star-Wars-Logo.png"/>
-        </Link>
-        <div className="ml-auto">
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >Favorites
-            </a>
-            <ul className="dropdown-menu">
-            <a className="dropdown-item" href="#">Action</a>
-            </ul>
-          </li>
-          <Link to="/demo">
-            <button className="btn btn-primary">
-              Check the Context in action
-            </button>
+    <nav className="navbar navbar-dark bg-dark mb-3">
+      <div className="container-fluid d-flex justify-content-between mx-md-4 mt-4 mb-1">
+        <div>
+          <Link className="navbar-brand" to="/">
+            <img height="70" src="https://www.gamerfocus.co/wp-content/uploads/2018/03/Star-Wars-Logo.png"/>
           </Link>
         </div>
-      </nav>
-    </div>
+        <div>
+          <ul className="nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link link-secondary" to="/people">People</Link>
+            </li>
+      			<li className="nav-item">
+              <Link className="nav-link link-secondary" to="/planets">Planets</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link link-secondary" to="/starships">Starships</Link>
+            </li>
+            <li className="nav-item">
+              <div className="dropdown">
+                <FavoritesButton />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 };
